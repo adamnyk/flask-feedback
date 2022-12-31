@@ -45,6 +45,7 @@ class User(db.Model):
             username=username, password=hashed_utf8, 
             email=email, 
             first_name=first, 
+            last_name=last
             )
         
         db.session.add(user)

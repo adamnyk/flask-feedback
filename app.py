@@ -125,8 +125,12 @@ def delete_user(username):
         return redirect("/")      
     
     else:
-        db.session.delete(username)
+        user = User.query.get(username)
+        
+        db.session.delete(user)
         db.session.commit()
+        session.pop("username")
+
         
         flash(f"User: {username} deleted!")
         return redirect('/')
